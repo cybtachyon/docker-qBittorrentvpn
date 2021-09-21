@@ -39,6 +39,12 @@ else
   export UMASK="002"
 fi
 
+if [[ ! -e /downloads ]]; then
+	mkdir -p /downloads
+	chown -R ${PUID}:${PGID} /downloads
+else
+	chown -R ${PUID}:${PGID} /downloads
+fi
 
 # Set qBittorrent WebUI and Incoming ports
 if [ ! -z "${WEBUI_PORT}" ]; then
